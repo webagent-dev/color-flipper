@@ -1,0 +1,66 @@
+const addBtn = document.querySelector('.add')
+const leadContainer = document.querySelector('.main-wrapper')
+
+addBtn.addEventListener('click', () => {
+  addNew()
+})
+const note = JSON.parse(localStorage.getItem(lsData))
+if(note){
+  note.forEach((text) =>{
+    addNew(text)
+  })
+}
+
+function addNew (text = '') {
+ theEl = document.createElement('div')
+  theEl.classList.add('container')
+  theEl.innerHTML = ` 
+  <div>
+  <div class="tool"> 
+      <div class="btn edit">  <i class="fas fa-edit"></i></div> 
+      <div class="btn delete"> <i class="fas fa-times"></i> </div> 
+  </div>
+  <div class="main-container">
+      <div class="main">
+
+      </div> 
+      <form class=" text hidden">
+          <textarea id="word"></textarea>
+      </form>  
+</div> 
+</div>
+ `
+ 
+    leadContainer.appendChild(theEl)
+  const editBtn = theEl.querySelector('.edit')
+  const deleteBtn = theEl.querySelector('.delete')
+  const mainDiv = theEl.querySelector('.main')
+  const textarea = theEl.querySelector('.text')
+  editBtn.addEventListener('click', () => {
+    mainDiv.classList.toggle('hidden')
+    textarea.classList.toggle('hidden')
+  })
+
+  textarea.value = text
+
+  textarea.addEventListener('input', (e) => {
+    const { value } = e.target
+    mainDiv.innerHTML = marked(value)
+  })
+  deleteBtn.addEventListener('click', () => {
+        theEl.remove()
+  })
+  setToLS(theEl)
+}
+
+function setToLS(theEl){
+  console.log(theEl)
+
+ lsData = theEl.querySelectorAll('#word')
+  const notee = []
+  lsData.forEach((notes) => {
+      notes.push(notee.value)
+  })
+  localStorage.setItem('note', JSON.stringify(notee))
+}
+

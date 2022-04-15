@@ -1,0 +1,119 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+width: 100vw;
+height: 100vh;
+    background: darkgray;
+}
+.main-wrapper{
+    width: 100%;
+    height: 100%;
+    background: lightgoldenrodyellow;
+    padding: 15px 25px;
+    transition: all 1s linear;
+    translate: scale(1);
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+   
+    /* margin: 5px; */
+}
+.main-container{
+    position: relative;
+    width: 350px;
+    height: 300px;
+}
+.tool{
+    height: 25px;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    width: 350px;
+    background: rgb(60, 228, 60);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.edit,
+.delete,
+.add__btn{
+    color: black;
+    z-index: 99;
+    padding: 0 20px;
+    cursor: pointer;
+    transition: all .3s linear;
+}
+.edit:hover{
+    color: whitesmoke;
+}
+.delete:hover{
+    color: red;
+}
+.add__btn:hover{
+    color: lime;
+}
+.edit:active{
+    color:  rgb(16, 61, 16)
+}
+.delete:active{
+    color: coral;
+}
+.add__btn:active{
+    color: whitesmoke;
+}
+.main{
+    width: 350px;
+    height: 300px;
+    max-height: 300px;
+    border: 1px solid lightgray;
+    background: aliceblue;
+    border-radius: 5px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-transform: capitalize;
+    padding: 5px 10px;
+    overflow-y: scroll;
+    word-wrap: break-word;
+    word-break: break-all;
+    line-height: 1.6
+}
+.text{
+   position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.text textarea{
+   width: 350px;
+   height: 300px;
+   max-width: 350px;
+   max-height: 300px;
+   font-size: 1.5rem;
+   font-weight: 300;  
+}
+.hidden{
+    display: none;
+}
+.add{
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    padding: 10px 25px;
+    text-transform: capitalize;
+    font-weight: 700;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background:rgb(16, 61, 16);
+    color: whitesmoke;
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.1);
+    transition: all .3s ease;
+   
+}
+.add:active{
+    background: lime;
+}
